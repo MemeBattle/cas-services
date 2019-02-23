@@ -1,5 +1,5 @@
 const CAS_ROUTES = {
-  login: '/auth/login',
+  loginRequest: '/auth/loginRequest',
   emailSignUp: '/auth/email/signup',
 }
 
