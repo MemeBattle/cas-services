@@ -6,7 +6,7 @@
   "author": "MemeBattle",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json && git tag"
   },
   "devDependencies": {
     "prettier": "^1.16.4",
