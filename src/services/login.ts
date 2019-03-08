@@ -6,7 +6,7 @@ type Login = {
 }
 
 const createLoginService = request => (credentials: Login) => {
-  return request.post(CAS_ROUTES, credentials)
+  return request.post(CAS_ROUTES.loginRequest, credentials)
 }
 
 export default createLoginService
