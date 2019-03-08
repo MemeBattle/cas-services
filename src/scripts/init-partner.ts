@@ -28,10 +28,9 @@ const styles = {
 }
 
 function decorateObjectMethods<O>(obj: O, decorator: (func: () => Promise<void>) => () => void): O {
-  // @ts-ignore
   return Object.entries(obj).reduce(
-    (decoratedObject, [key, prop]) => ({ ...decoratedObject, [key]: decorator(prop) }),
-    {},
+    (decoratedObject: O, [key, prop]): O => ({ ...decoratedObject, [key]: decorator(prop) }),
+    {} as O,
   )
 }
 
