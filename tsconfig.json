@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "module": "commonjs",
     "target": "es6",
     "sourceMap": false,
-    "outDir": "build",
-    "types": ["node"]
+    "outDir": "../dist"
   },
-  "include": ["src/*.ts", "example/*.ts", "test/*.ts"]
+  "include": ["src/*.ts"]
 }
