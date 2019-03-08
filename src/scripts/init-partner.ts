@@ -57,32 +57,32 @@ const showLoader: ShowLoader = asyncFunc => async (...args) => {
   return answer
 }
 
-interface Credentials {
+type Credentials = {
   login: string
   password: string
 }
 
-interface CreatePartner {
+type CreatePartner = {
   email: string
   password: string
   username: string
 }
 
-interface User {
+type User = {
   username: string
   email: string
   token: string
   _id: string
 }
 
-interface SuccessAnswer {
+type SuccessAnswer = {
   success: true
 }
 
-interface UserAnswer extends SuccessAnswer {
+type UserAnswer = {
   user: User
   token: string
-}
+} & SuccessAnswer
 
 const createRequests = CAS_URI => {
   const CAS_ROUTES = createCasRoutes(CAS_URI)

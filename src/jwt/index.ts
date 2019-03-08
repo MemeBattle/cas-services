@@ -1,10 +1,10 @@
 import JWT from 'jsonwebtoken'
 
-interface SignOptions {
+type SignOptions = {
   algorithms: [string]
 }
 
-interface CreateJWTServices {
+type CreateJWTServices = {
   publicKey: string
   signOptions: SignOptions
 }

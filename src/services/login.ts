@@ -1,6 +1,6 @@
 import { CAS_ROUTES } from '../constants'
 
-interface Login {
+type Login = {
   login: string
   password: string
 }

@@ -1,7 +1,7 @@
 "use strict";
-exports.__esModule = true;
-var CAS_ROUTES = {
+Object.defineProperty(exports, "__esModule", { value: true });
+const CAS_ROUTES = {
     loginRequest: '/auth/loginRequest',
-    emailSignUp: '/auth/email/signup'
+    emailSignUp: '/auth/email/signup',
 };
 exports.CAS_ROUTES = CAS_ROUTES;

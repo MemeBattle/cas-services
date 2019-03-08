@@ -1,7 +1,7 @@
 import request from './request'
 import { createLoginService, createSignUpService } from './services'
 
-interface CreateCasServices {
+type CreateCasServices = {
   casURI: string
   partnerId: string
 }
