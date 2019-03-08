@@ -1,10 +1,13 @@
 {
   "name": "cas-services",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/request.js",
   "repository": "ssh://git@gitlab.mems.fun:2224/memebattle/cas-services.git",
   "author": "MemeBattle",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc --outDir ./dist ./src/request.ts"
+  },
   "devDependencies": {
     "prettier": "^1.16.4",
     "tslint": "^5.12.1",
