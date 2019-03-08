@@ -1,7 +1,7 @@
 {
   "name": "cas-services",
   "version": "1.0.0",
-  "main": "dist/request.js",
+  "main": "dist/index.js",
   "repository": "ssh://git@gitlab.mems.fun:2224/memebattle/cas-services.git",
   "author": "MemeBattle",
   "license": "MIT",
