@@ -1,3 +1,4 @@
+import './scripts/init-partner'
 import request from './request'
 import { createLoginService, createSignUpService } from './services'
 
