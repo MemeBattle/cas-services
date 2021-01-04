@@ -7,7 +7,7 @@ type CreateCasServices = {
   partnerId: string
 }
 
-const createCasServices = ({ casURI, partnerId }: CreateCasServices) => {
+export const createCasServices = ({ casURI, partnerId }: CreateCasServices) => {
   const baseRequest = request.create({ baseURL: casURI })
 
   const loginService = createLoginService(baseRequest)

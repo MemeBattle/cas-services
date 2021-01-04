@@ -4,8 +4,6 @@ import * as readline from 'readline'
 import chalk from 'chalk'
 import * as chalkAnimation from 'chalk-animation'
 
-const tokenHard =
-  'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YzM4ZjZlZTMxZDRjMjAxOTMxZDgyOTgiLCJwZXJtaXNzaW9ucyI6eyJDQVMiOlsiZnVsbCJdfSwiaWF0IjoxNTUwODU5NTc2LCJleHAiOjE1NTEwMzIzNzZ9.oJIDxxwlan0r1tolRRvDPCaNIMFeohjzC-d3-n6HogcC9OP4WCL4ELs6tkSIfdf-pfd0CDOp3xN5z3i6BX8K8DtI36tyXbOV3GQHq39Q-ZeoCRPWEpEqOmQVXQz0tUFSmJ2pfxdrzkr69sQ2mnIPuE_xXf8AFKc_cPOY5mfIlOT35c6my9YDG1r_Dp7y5aAa4D8BkNSCiIZK0oEtH-AfEFbpByP3Q6IbbLyIFizWhrL6MP2LUeTTSjktMGqLfMm_t7qFJXvIurLrIGH1y5afLlYJxHUoHJRYpyLEBoUtVq3TrDP9n3330uHUBKmcPtLviL12_xirY8atCnzMg8aF9w'
 const CAS_BASE_URI = 'https://cas.mems.fun'
 const DEFAULT_KEY_PATH = './key.pem'
 
@@ -34,21 +32,21 @@ function decorateObjectMethods<O>(obj: O, decorator: (func: () => Promise<void>)
   )
 }
 
-const createQuestion = (questionText: string, defaultValue: string = ''): Promise<string> =>
+const createQuestion = (questionText: string, defaultValue = ''): Promise<string> =>
   new Promise(resolve =>
     rl.question(questionText, answer => {
       resolve(answer || defaultValue)
     }),
   )
 
-const checkNotEmptyString = (inputString: string, errorMessage: string = ''): boolean => {
+const checkNotEmptyString = (inputString: string, errorMessage = ''): boolean => {
   if (!inputString.length && errorMessage) {
     throw new Error(errorMessage)
   }
   return inputString.length > 0
 }
 
-type ShowLoader = (func: (...rest: any[]) => Promise<any>) => () => void
+type ShowLoader = <A>(func: (...rest: A[]) => Promise<unknown>) => () => void
 
 const showLoader: ShowLoader = asyncFunc => async (...args) => {
   const loader = chalkAnimation.rainbow('Wait CAS answer...')
@@ -154,7 +152,7 @@ const initPartner = async () => {
 
     const { token, user } = await loginRequest({ login: username, password })
 
-    console.log(styles.success(`Hello, ${user.username}`)) // tslint:disable-line:no-console
+    console.log(styles.success(`Hello, ${user.username}`))
 
     const partnerId = await createQuestion(
       `partnerId (${styles.helper('blank field to create new')}): `,
@@ -164,7 +162,7 @@ const initPartner = async () => {
 
     const key = await getKey(newPartnerId, token)
 
-    console.log('key: ', key) // tslint:disable-line:no-console
+    console.log('key: ', key)
 
     const keyPath = await createQuestion(
       `Path to save a key (${styles.defaultString(DEFAULT_KEY_PATH)}): `,
@@ -173,9 +171,9 @@ const initPartner = async () => {
 
     fs.writeFileSync(keyPath, key, { flag: 'w+' })
   } catch (e) {
-    console.error(e) // tslint:disable-line:no-console
+    console.error(e)
   } finally {
-    console.log(styles.endLine('Good luck :)') + '\n') // tslint:disable-line:no-console
+    console.log(styles.endLine('Good luck :)') + '\n')
     rl.close()
   }
 }
