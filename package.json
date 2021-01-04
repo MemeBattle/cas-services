@@ -2,12 +2,12 @@
   "name": "@memebattle/cas-services",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "repository": "ssh://git@gitlab.mems.fun:2224/memebattle/cas-services.git",
+  "repository": "git@github.com:MemeBattle/cas-services.git",
   "author": "MemeBattle",
   "license": "MIT",
   "scripts": {
     "eslint": "eslint ./src",
-    "build": "tsc -p tsconfig.json && git tag",
+    "build": "tsc -p tsconfig.json",
     "test": "jest"
   },
   "devDependencies": {
