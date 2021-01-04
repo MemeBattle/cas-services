@@ -1,4 +1,5 @@
 import { restorePassword } from '../'
+import { AxiosInstance } from 'axios'
 
 const stubData = {
   login: 'mew',
@@ -6,6 +7,6 @@ const stubData = {
 
 describe('Restore Password Service', () => {
   test('Should return promise', () => {
-    expect(restorePassword({})(stubData) instanceof Promise).toBeTruthy()
+    expect(restorePassword({} as AxiosInstance)(stubData) instanceof Promise).toBeTruthy()
   })
 })
