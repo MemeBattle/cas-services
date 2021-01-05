@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import * as fs from 'fs'
 import axios from 'axios'
 import * as readline from 'readline'
@@ -178,4 +180,4 @@ const initPartner = async () => {
   }
 }
 
-initPartner()
+initPartner().then(close)
