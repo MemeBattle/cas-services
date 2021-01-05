@@ -1,22 +1,15 @@
-import JWT from 'jsonwebtoken'
-
-type SignOptions = {
-  algorithms: [string]
-}
+import { verify } from 'jsonwebtoken'
 
 type CreateJWTServices = {
   publicKey: string
-  signOptions: SignOptions
 }
 
-const createJWTServices = ({ publicKey, signOptions }: CreateJWTServices) => ({
-  verify(token: string): Promise<unknown> {
+export const createJWTServices = ({ publicKey }: CreateJWTServices) => ({
+  verifyToken(token: string) {
     return new Promise((resolve, reject) => {
-      JWT.verify(token, publicKey, { algorithms: [signOptions.algorithms] }, (err, decoded) =>
+      verify(token, publicKey, { algorithms: ['RS256'] }, (err, decoded) =>
         err ? reject(err) : resolve(decoded),
       )
     })
   },
 })
-
-export default createJWTServices

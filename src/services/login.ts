@@ -1,13 +1,9 @@
-import { CAS_ROUTES } from '../constants'
 import { AxiosInstance } from 'axios'
+import { CAS_ROUTES } from '../constants'
+import { LoginCredentials, SuccessLogin, ErrorLogin } from '../types'
 
-type Login = {
-  login: string
-  password: string
-}
-
-export const createLoginService = (request: AxiosInstance) => (credentials: Login) => {
-  return request.post(CAS_ROUTES.loginRequest, credentials)
+export const createLoginService = (request: AxiosInstance) => (credentials: LoginCredentials) => {
+  return request.post<ErrorLogin | SuccessLogin>(CAS_ROUTES.loginRequest, credentials)
 }
 
 export default createLoginService
