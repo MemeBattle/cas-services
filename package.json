@@ -2,9 +2,13 @@
   "name": "@memebattle/cas-services",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "git@github.com:MemeBattle/cas-services.git",
   "author": "MemeBattle",
   "license": "MIT",
+  "bin": {
+    "init-partner": "dist/scripts/init-partner.js"
+  },
   "scripts": {
     "eslint": "eslint ./src",
     "build": "tsc -p tsconfig.json",
