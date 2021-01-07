@@ -1,4 +1,3 @@
-import './scripts/init-partner'
 import request from './request'
 import { createJWTServices } from './jwt'
 import { createLoginService, createSignUpService } from './services'
