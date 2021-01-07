@@ -35,3 +35,7 @@ export type SignUpCredentials = {
 export type SuccessSignUp = SuccessAnswer<User & { partnerId: string }>
 
 export type ErrorSignUp = ErrorAnswer
+
+export type RestorePasswordCredentials = {
+  login: string
+}

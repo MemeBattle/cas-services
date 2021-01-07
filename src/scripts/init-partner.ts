@@ -180,4 +180,4 @@ const initPartner = async () => {
   }
 }
 
-initPartner().then(close)
+initPartner()
