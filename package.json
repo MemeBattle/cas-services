@@ -13,7 +13,7 @@
   "scripts": {
     "eslint": "eslint ./src",
     "build": "tsc -p tsconfig.json",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
