@@ -1,3 +1,6 @@
+import { truncate } from 'fs'
+import { VerifyErrors } from 'jsonwebtoken'
+
 export type User = {
   activated: boolean
   username: string
@@ -17,7 +20,9 @@ export type ErrorAnswer<E extends string = ''> = {
   }
 }
 
-export type SuccessLogin = SuccessAnswer<{ token: string; user: User }>
+export type SuccessLoginData = { token: string; user: User }
+
+export type SuccessLogin = SuccessAnswer<SuccessLoginData>
 
 export type ErrorLogin = ErrorAnswer<'user not found'>
 
@@ -32,10 +37,28 @@ export type SignUpCredentials = {
   email: string
 }
 
-export type SuccessSignUp = SuccessAnswer<User & { partnerId: string }>
+export type SuccessSignUpData = User & { partnerId: string }
+
+export type SuccessSignUp = SuccessAnswer<SuccessSignUpData>
 
 export type ErrorSignUp = ErrorAnswer
 
 export type RestorePasswordCredentials = {
   login: string
+}
+
+export type CreateJWTServices = {
+  publicKey: string
+}
+
+export type VerifyTokenSuccess = {
+  success: true
+  data: {
+    _id: string
+  }
+}
+
+export type VerifyTokenError = {
+  success: false
+  error: VerifyErrors
 }
