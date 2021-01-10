@@ -1,14 +1,11 @@
 import { verify } from 'jsonwebtoken'
-
-type CreateJWTServices = {
-  publicKey: string
-}
+import { CreateJWTServices, VerifyTokenSuccess, VerifyTokenError } from '../types'
 
 export const createJWTServices = ({ publicKey }: CreateJWTServices) => ({
-  verifyToken(token: string) {
+  verifyToken(token: string): Promise<VerifyTokenSuccess | VerifyTokenError> {
     return new Promise((resolve, reject) => {
-      verify(token, publicKey, { algorithms: ['RS256'] }, (err, decoded) =>
-        err ? reject(err) : resolve(decoded),
+      verify(token, publicKey, { algorithms: ['RS256'] }, (err, decoded: { _id: string }) =>
+        err ? reject({ success: false, error: err }) : resolve({ success: true, data: decoded }),
       )
     })
   },
