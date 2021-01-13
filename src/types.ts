@@ -1,5 +1,5 @@
-import { truncate } from 'fs'
 import { VerifyErrors } from 'jsonwebtoken'
+import { AxiosRequestConfig } from 'axios'
 
 export type User = {
   activated: boolean
@@ -61,4 +61,21 @@ export type VerifyTokenSuccess = {
 export type VerifyTokenError = {
   success: false
   error: VerifyErrors
+}
+
+export type SuccessLoggerFunction = (
+  status: number,
+  data: unknown,
+  headers: Record<string, string>,
+  config: AxiosRequestConfig,
+) => void
+
+export type ErrorLoggerFunction = (error: unknown) => void
+
+export type CreateCasServices = {
+  casURI: string
+  partnerId: string
+  publicKey: string
+  successLogger?: SuccessLoggerFunction
+  errorLogger?: ErrorLoggerFunction
 }

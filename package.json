@@ -12,6 +12,7 @@
   "scripts": {
     "eslint": "eslint ./src",
     "build": "tsc -p tsconfig.json",
+    "init:partner": "node dist/scripts/init-partner.js",
     "test": "jest"
   },
   "devDependencies": {
@@ -20,6 +21,7 @@
     "@types/node": "^14.14.19",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
+    "dotenv-extended": "^2.9.0",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.0",
@@ -30,7 +32,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "chalk": "^2.4.2",
     "chalk-animation": "^1.6.0",
     "jsonwebtoken": "^8.5.0"
