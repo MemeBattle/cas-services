@@ -4,7 +4,7 @@ import * as fs from 'fs'
 import axios from 'axios'
 import * as readline from 'readline'
 import chalk from 'chalk'
-import * as chalkAnimation from 'chalk-animation'
+import chalkAnimation from 'chalk-animation'
 
 const CAS_BASE_URI = 'https://cas.mems.fun'
 const DEFAULT_KEY_PATH = './key.pem'

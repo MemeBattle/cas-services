@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "repository": "git@github.com:MemeBattle/cas-services.git",
   "author": "MemeBattle",
   "license": "MIT",
@@ -13,7 +14,7 @@
     "eslint": "eslint ./src",
     "build": "tsc -p tsconfig.json",
     "init:partner": "node dist/scripts/init-partner.js",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
