@@ -13,9 +13,10 @@ export type SuccessAnswer<D> = {
   data: D
 }
 
-export type ErrorAnswer<E extends string = ''> = {
+export type ErrorAnswer<E extends string = '', C extends number = 500> = {
   success: false
   error: {
+    code: C
     errorMessage: E
   }
 }

@@ -25,7 +25,7 @@ export const createCasServices = ({
       if (errorLogger) {
         errorLogger(error)
       }
-      return { success: false, error: error }
+      return { success: false, error: error, code: error.code }
     },
   )
 

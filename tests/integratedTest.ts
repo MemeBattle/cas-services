@@ -46,6 +46,7 @@ const services = createCasServices({
       }
     } else {
       console.log(chalk.red(`Login error result`))
+      console.log(loginResult)
     }
 
     const verifyFalseResult = await services.verifyToken('qweqweqwe')
