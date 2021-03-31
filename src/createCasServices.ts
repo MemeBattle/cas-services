@@ -1,5 +1,5 @@
 import request from './request'
-import { createLoginService, createSignUpService } from './services'
+import { createLoginService, createSignUpService, createHealthService } from './services'
 import { createJWTServices } from './jwt'
 import { CreateCasServices } from './types'
 
@@ -30,10 +30,11 @@ export const createCasServices = ({
   )
 
   const loginService = createLoginService(baseRequest)
+  const healthService = createHealthService(baseRequest)
 
   const signUpService = createSignUpService(baseRequest, partnerId)
 
   const { verifyToken } = createJWTServices({ publicKey })
 
-  return { loginService, signUpService, verifyToken }
+  return { loginService, signUpService, verifyToken, healthService }
 }

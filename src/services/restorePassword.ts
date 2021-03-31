@@ -4,7 +4,5 @@ type RestorePasswordPayload = {
   login: string
 }
 
-const restorePassword = (request: AxiosInstance) => (payload: RestorePasswordPayload) =>
+export const restorePassword = (request: AxiosInstance) => (payload: RestorePasswordPayload) =>
   new Promise(() => {})
-
-export default restorePassword
