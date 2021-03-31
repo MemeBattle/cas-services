@@ -80,3 +80,7 @@ export type CreateCasServices = {
   successLogger?: SuccessLoggerFunction
   errorLogger?: ErrorLoggerFunction
 }
+
+export type SuccessHealthCheck = SuccessAnswer<{ commit: string }>
+
+export type ErrorHealthCheck = ErrorAnswer<''>

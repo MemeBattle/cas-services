@@ -8,5 +8,3 @@ export const createLoginService = (request: AxiosInstance) => (credentials: Logi
     credentials,
   )
 }
-
-export default createLoginService

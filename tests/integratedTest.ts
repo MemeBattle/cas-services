@@ -26,6 +26,13 @@ const services = createCasServices({
   console.log(chalk.yellow.bold('Start integratedTest'))
 
   try {
+    const healthResult = await services.healthService()
+
+    if (healthResult.success) {
+      console.log(chalk.green('Health success'))
+      console.log(healthResult.data)
+    }
+
     const loginResult = await services.loginService({
       login: process.env.CAS_LOGIN,
       password: process.env.CAS_PASSWORD,
