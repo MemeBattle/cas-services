@@ -1,6 +1,4 @@
-import { createCasServices } from './createCasServices'
-
+export { createCasServices } from './createCasServices'
 export * from './types'
-export { createCasServices }
-
+export { createFrontServices } from './createFrontServices'
 export * from './constants'
