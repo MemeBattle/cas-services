@@ -81,6 +81,13 @@ export type CreateCasServices = {
   errorLogger?: ErrorLoggerFunction
 }
 
+export type CreateFrontServices = {
+  casURI: string
+  partnerId: string
+  successLogger?: SuccessLoggerFunction
+  errorLogger?: ErrorLoggerFunction
+}
+
 export type SuccessHealthCheck = SuccessAnswer<{ commit: string }>
 
 export type ErrorHealthCheck = ErrorAnswer<''>
