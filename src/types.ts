@@ -91,3 +91,15 @@ export type CreateFrontServices = {
 export type SuccessHealthCheck = SuccessAnswer<{ commit: string }>
 
 export type ErrorHealthCheck = ErrorAnswer<''>
+
+
+export type UpdateUserProfilePayload = {
+  username: string
+  avatar: File
+  userId: string
+  token: string
+}
+
+export type SuccessUpdateUser = SuccessAnswer<User>
+
+export type ErrorUpdateUser = ErrorAnswer
