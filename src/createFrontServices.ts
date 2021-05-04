@@ -1,5 +1,10 @@
 import { createBaseRequest } from './request'
-import { createLoginService, createSignUpService, createUpdateUserProfileService } from './services'
+import {
+  createGetMeService,
+  createLoginService,
+  createSignUpService,
+  createUpdateUserProfileService,
+} from './services'
 import { CreateFrontServices } from './types'
 
 export const createFrontServices = ({
@@ -15,6 +20,7 @@ export const createFrontServices = ({
   const signUpService = createSignUpService(baseRequest, partnerId)
 
   const updateUserProfileService = createUpdateUserProfileService(baseRequest)
+  const getMeService = createGetMeService(baseRequest)
 
-  return { loginService, signUpService, updateUserProfileService }
+  return { loginService, signUpService, updateUserProfileService, getMeService }
 }
