@@ -95,7 +95,7 @@ export type ErrorHealthCheck = ErrorAnswer<''>
 
 export type UpdateUserProfilePayload = {
   username: string
-  avatar: File
+  avatar?: File
   userId: string
   token: string
 }
@@ -105,9 +105,9 @@ export type SuccessUpdateUser = SuccessAnswer<User>
 export type ErrorUpdateUser = ErrorAnswer
 
 export type GetMePayload = {
-  token?: string
+  token: string
 }
 
-export type SuccessGetMe = SuccessAnswer<User>
+export type SuccessGetMe = SuccessAnswer<{ user: User }>
 
 export type ErrorGetMe = ErrorAnswer<'user not found', 400> | ErrorAnswer<'forbidden', 403>
