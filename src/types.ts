@@ -6,6 +6,7 @@ export type User = {
   username: string
   _id: string
   email: string
+  avatar?: string
 }
 
 export type SuccessAnswer<D> = {
@@ -92,7 +93,6 @@ export type SuccessHealthCheck = SuccessAnswer<{ commit: string }>
 
 export type ErrorHealthCheck = ErrorAnswer<''>
 
-
 export type UpdateUserProfilePayload = {
   username: string
   avatar: File
@@ -103,3 +103,11 @@ export type UpdateUserProfilePayload = {
 export type SuccessUpdateUser = SuccessAnswer<User>
 
 export type ErrorUpdateUser = ErrorAnswer
+
+export type GetMePayload = {
+  token?: string
+}
+
+export type SuccessGetMe = SuccessAnswer<User>
+
+export type ErrorGetMe = ErrorAnswer<'user not found', 400> | ErrorAnswer<'forbidden', 403>
