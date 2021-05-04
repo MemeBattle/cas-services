@@ -108,6 +108,6 @@ export type GetMePayload = {
   token?: string
 }
 
-export type SuccessGetMe = SuccessAnswer<User>
+export type SuccessGetMe = SuccessAnswer<{ user: User }>
 
 export type ErrorGetMe = ErrorAnswer<'user not found', 400> | ErrorAnswer<'forbidden', 403>
