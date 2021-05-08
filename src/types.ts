@@ -2,7 +2,6 @@ import { VerifyErrors } from 'jsonwebtoken'
 import { AxiosRequestConfig } from 'axios'
 
 export type User = {
-  activated: boolean
   username: string
   _id: string
   email: string
@@ -111,3 +110,11 @@ export type GetMePayload = {
 export type SuccessGetMe = SuccessAnswer<{ user: User }>
 
 export type ErrorGetMe = ErrorAnswer<'user not found', 400> | ErrorAnswer<'forbidden', 403>
+
+export type GetUsersPayload = {
+  ids?: string | string[]
+  limit?: number
+  offset?: number
+}
+
+export type SuccessGetUsers = SuccessAnswer<User[]>
