@@ -63,6 +63,14 @@ const services = createCasServices({
     } else {
       console.log(chalk.green(`Verify falsy token success`))
     }
+
+    const users = await services.getUsersService()
+
+    if (users.success) {
+      console.log(chalk.green('Get users success'))
+    } else {
+      console.log(chalk.red('Get users error'))
+    }
   } catch (e) {
     console.error('ERROR', e)
   }

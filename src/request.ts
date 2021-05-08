@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { stringify } from 'qs'
 import { ErrorLoggerFunction, SuccessLoggerFunction } from './types'
 
 export const createBaseRequest = ({
@@ -13,6 +14,7 @@ export const createBaseRequest = ({
   const baseRequest = axios.create({
     baseURL: casURI,
     validateStatus: status => status >= 200 && status < 500,
+    paramsSerializer: params => stringify(params, { arrayFormat: 'repeat' }),
   })
 
   baseRequest.interceptors.response.use(
