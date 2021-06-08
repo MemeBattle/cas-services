@@ -20,12 +20,24 @@ export type ErrorAnswer<E extends string = '', C extends number | string = 500> 
     errorMessage: E
   }
 }
+export type ValidationErrorAnswer<C extends number | string = 400> = {
+  success: false
+  error: {
+    errorCode: C
+    errors: Array<{
+      message: string
+      path: string[]
+      type: string
+      context: { key: string; label: string }
+    }>
+  }
+}
 
 export type SuccessLoginData = { token: string; user: User }
 
 export type SuccessLogin = SuccessAnswer<SuccessLoginData>
 
-export type ErrorLogin = ErrorAnswer<'user not found'>
+export type ErrorLogin = ErrorAnswer<'user not found', 404> | ValidationErrorAnswer
 
 export type LoginCredentials = {
   login: string
@@ -42,7 +54,7 @@ export type SuccessSignUpData = User & { partnerId: string }
 
 export type SuccessSignUp = SuccessAnswer<SuccessSignUpData>
 
-export type ErrorSignUp = ErrorAnswer
+export type ErrorSignUp = ErrorAnswer<'User already exist', 422> | ValidationErrorAnswer
 
 export type RestorePasswordCredentials = {
   login: string
