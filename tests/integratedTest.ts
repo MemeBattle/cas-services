@@ -6,6 +6,8 @@ import { resolve } from 'path'
 
 load()
 
+console.log(chalk.gray(`Start integratedTest\n============\nCAS_PUBLIC_KEY_PATH: ${process.env.CAS_PUBLIC_KEY_PATH}`))
+
 const key = readFileSync(resolve(__dirname, process.env.CAS_PUBLIC_KEY_PATH)).toString()
 
 const logger = (...messages: unknown[]): void => {
@@ -71,6 +73,17 @@ const services = createCasServices({
     } else {
       console.log(chalk.red('Get users error'))
     }
+
+    const temporaryToken = await services.createTemporaryTokenService()
+
+    if (temporaryToken.success) {
+      console.log(chalk.green('Create temporary token success'))
+      console.log(temporaryToken.data)
+    } else {
+      console.log(chalk.red('Create temporary token error'))
+      console.log(temporaryToken)
+    }
+
   } catch (e) {
     console.error('ERROR', e)
   }

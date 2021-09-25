@@ -1,7 +1,13 @@
 import { VerifyErrors } from 'jsonwebtoken'
 import { AxiosRequestConfig } from 'axios'
 
+export type TemporaryUser = {
+  isTemporary: true
+  _id: string
+}
+
 export type User = {
+  isTemporary: false
   username: string
   _id: string
   email: string
@@ -119,7 +125,7 @@ export type GetMePayload = {
   token: string
 }
 
-export type SuccessGetMe = SuccessAnswer<{ user: User }>
+export type SuccessGetMe = SuccessAnswer<{ user: User | TemporaryUser }>
 
 export type ErrorGetMe = ErrorAnswer<'user not found', 400> | ErrorAnswer<'forbidden', 403>
 
@@ -130,3 +136,6 @@ export type GetUsersPayload = {
 }
 
 export type SuccessGetUsers = SuccessAnswer<User[]>
+
+export type SuccessCreateTemporaryToken = SuccessAnswer<{temporaryToken: string, temporaryUser: TemporaryUser}>
+export type ErrorCreateTemporaryToken = ErrorAnswer

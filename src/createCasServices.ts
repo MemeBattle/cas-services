@@ -5,6 +5,7 @@ import {
   createHealthService,
   createGetMeService,
   createGetUsersService,
+  createCreateTemporaryTokenService,
 } from './services'
 import { createJWTServices } from './jwt'
 import { CreateCasServices } from './types'
@@ -29,5 +30,7 @@ export const createCasServices = ({
 
   const { verifyToken } = createJWTServices({ publicKey })
 
-  return { loginService, signUpService, verifyToken, healthService, getMeService, getUsersService }
+  const createTemporaryTokenService = createCreateTemporaryTokenService(baseRequest)
+
+  return { loginService, signUpService, verifyToken, healthService, getMeService, getUsersService, createTemporaryTokenService }
 }
