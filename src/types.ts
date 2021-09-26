@@ -136,6 +136,7 @@ export type GetUsersPayload = {
 }
 
 export type SuccessGetUsers = SuccessAnswer<User[]>
+export type ErrorGetUsers = ValidationErrorAnswer
 
 export type SuccessCreateTemporaryToken = SuccessAnswer<{temporaryToken: string, temporaryUser: TemporaryUser}>
 export type ErrorCreateTemporaryToken = ErrorAnswer
