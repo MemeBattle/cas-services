@@ -32,5 +32,13 @@ export const createCasServices = ({
 
   const createTemporaryTokenService = createCreateTemporaryTokenService(baseRequest)
 
-  return { loginService, signUpService, verifyToken, healthService, getMeService, getUsersService, createTemporaryTokenService }
+  return {
+    loginService,
+    signUpService,
+    verifyToken,
+    healthService,
+    getMeService,
+    getUsersService,
+    createTemporaryTokenService,
+  }
 }
