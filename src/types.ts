@@ -1,5 +1,6 @@
 import { VerifyErrors } from 'jsonwebtoken'
-import { AxiosRequestConfig } from 'axios'
+import { AxiosRequestConfig, AxiosResponseHeaders } from 'axios'
+import { RawAxiosResponseHeaders } from 'axios'
 
 export type TemporaryUser = {
   isTemporary: true
@@ -62,10 +63,6 @@ export type SuccessSignUp = SuccessAnswer<SuccessSignUpData>
 
 export type ErrorSignUp = ErrorAnswer<'User already exist', 422> | ValidationErrorAnswer
 
-export type RestorePasswordCredentials = {
-  login: string
-}
-
 export type CreateJWTServices = {
   publicKey: string
 }
@@ -85,7 +82,7 @@ export type VerifyTokenError = {
 export type SuccessLoggerFunction = (
   status: number,
   data: unknown,
-  headers: Record<string, string>,
+  headers: RawAxiosResponseHeaders | AxiosResponseHeaders,
   config: AxiosRequestConfig,
 ) => void
 
