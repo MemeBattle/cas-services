@@ -14,7 +14,10 @@ export const createBaseRequest = ({
   const baseRequest = axios.create({
     baseURL: casURI,
     validateStatus: status => status >= 200 && status < 500,
-    paramsSerializer: params => stringify(params, { arrayFormat: 'repeat' }),
+    paramsSerializer: {
+      indexes: false,
+      serialize: params => stringify(params, { arrayFormat: 'repeat' }),
+    },
   })
 
   baseRequest.interceptors.response.use(
